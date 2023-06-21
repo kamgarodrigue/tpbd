@@ -33,7 +33,7 @@ sequelize.initDB();
 // POINT DE TERMINAISON
 
 app.get('/',(req, res)=>{
-    res.send('Hello Hiruko');
+    res.render('login');
 })
 
 //point de terminaison sur pour les admin
@@ -56,6 +56,9 @@ require("./src/routes/categories/getCategories")(app);
 require("./src/routes/typeVoiture/addTypeVoiture")(app);
 require("./src/routes/typeVoiture/getTypeVoiture")(app);
 
+//point de terminaison sur pour les voiture
+require("./src/routes/typeVoiture/addTypeVoiture")(app);
+require("./src/routes/typeVoiture/getTypeVoiture")(app);
 
 
 

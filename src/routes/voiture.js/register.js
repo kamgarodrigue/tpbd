@@ -1,35 +1,34 @@
 const { ValidationError } = require('sequelize');
 const bcrypt = require('bcrypt');
-const {adminTable}= require("../../db/sequelize");
+const {voitureTable}= require("../../db/sequelize");
 const voiture = require('../../models/voiture');
 const upload =require("../../middleware/uploadvoiture")
 module.exports=(app) =>{
     app.post("/api/voiture/register",upload.single('photo'),(req,res)=>{
         const {id,description,nom,photo,categoryId,consomationId,typeVoitureId,adminId	} = req.body;
-        if(!nom ||!email ||!password){
+        if(id ||!description||!nom||!photo||!categoryId||!consomationId||!typeVoitureId||!adminId){
             return res.status(400).json({
                 message:"Entrer le nom, l'email et le role, le mot de passe"
             });
         }
         
-        const hash = bcrypt.hashSync(password,10);
-        const newadmin = {
-            nom,
-            email,
+        
+        const voiture = {
+            id,description,nom,photo,categoryId,consomationId,typeVoitureId,adminId,
             photo:"",
-            password:hash
+            
         };
         if(req.file){
            // console.log(req.file.path);
-            newadmin.photo = req.file.path
+            voiture.photo = req.file.path
         }else{
-            newadmin.photo = ""
+            voiture.photo = ""
         }
-        adminTable.create(newadmin)
-        .then(admin =>{
+        voitureTable.create(voiture)
+        .then(voiture =>{
             
-            const message=" l admin "+req.body.nom+" a bien été créé";
-            res.status(200).json({message, data: admin});
+            const message=" l voiture "+req.body.nom+" a bien été créé";
+            res.status(200).json({message, data: voiture});
 
         })
         .catch(err =>{
