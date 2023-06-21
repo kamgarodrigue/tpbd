@@ -28,9 +28,30 @@
         <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
         <%- include('composant/sidemenu'); %> 
 
-        <%- include('composant/sidebare'); %> 
-        <%- include('composant/search'); %> 
-        <%- include('composant/filter'); %> 
+        <div class="main-content app-content" >
+
+            <%- include('composant/sidebare'); %> 
+            <%- include('composant/button'); %> 
+            <div class="container">
+                <div class="row row-sm">
+                    <div class="col-xl-3 col-lg-4 mb-3 mb-md-0">
+                        <%- include('composant/search'); %> 
+                        <%- include('composant/filter'); %> 
+                        
+                    </div>
+                    <div class="col-xl-9 col-lg-8">
+                        <div class="row row-sm">
+                            <%- include('composant/voiture'); %> 
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+
+        
 
 </body>
 <%- include('composant/scriptIncudes'); %> 
