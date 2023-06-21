@@ -38,6 +38,9 @@ sequelize.initDB();
 app.get('/',(req, res)=>{
     res.render('login');
 })
+app.get('/homePage',(req, res)=>{
+    res.render('homePage');
+})
 
 //point de terminaison sur pour les admin
 require("./src/routes/adminRouter/register")(app);
