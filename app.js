@@ -2,11 +2,14 @@ const express = require('express');
 const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const morgan            = require("morgan")
+
 const sequelize = require('./src/db/sequelize');
 const app = express();
 require('events').EventEmitter.defaultMaxListeners = 35;
 
-const port=process.env.PORT || 3001;                
+const port=process.env.PORT || 3001;    
+app.use(morgan('dev'))            
 app.use(function (req, res, next) {
     //Enabling CORS
     res.header("Access-Control-Allow-Origin", "*");
@@ -23,9 +26,9 @@ app
     .use(bodyParser.json());
     
 app.set('view engine', 'ejs');
-app.use('/upload',express.static(__dirname + '/upload'))
-app.set('views', __dirname + '/views');
-app.use('/publics',express.static(__dirname + '/publics'));
+app.use('/upload',express.static(__dirname + 'upload'))
+app.set('views', __dirname + '/src/views');
+app.use('/publics',express.static(__dirname + '/src/public'));
 
 app.set('component', __dirname + '/component');
 sequelize.initDB();
