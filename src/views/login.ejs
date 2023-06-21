@@ -151,16 +151,16 @@
   
       // Récupération des données du formulaire
       var formData = $(form).serialize();
-  
+  console.log(formData);
       // Envoi de la requête AJAX
       $.ajax({
         type: 'POST',
-        url: '/webAut/autorite/login',
+        url: '/api/admin/login',
         data: formData
       })
       .done(function(response) {
         // Si la requête réussit, affiche le message de confirmation
-        window.location.href="/dahsbordadmin/";
+        window.location.href="/homePage/";
       })
       .fail(function(data) {
         // Si la requête échoue, affiche le message d'erreur et ajoute la classe "error" au formulaire

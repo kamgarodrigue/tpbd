@@ -3,13 +3,34 @@ const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan            = require("morgan")
+const session = require('express-session');
 
 const sequelize = require('./src/db/sequelize');
+const MySQLStore = require('express-mysql-session')(session);
 const app = express();
 require('events').EventEmitter.defaultMaxListeners = 35;
 
 const port=process.env.PORT || 3001;    
-app.use(morgan('dev'))            
+app.use(morgan('dev'))     
+ 
+  const sessionOptions = {
+    secret: 'mysecret', // Clé secrète pour signer les cookies de session
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLStore({
+      // Configuration de la connexion à la base de données
+      host: 'localhost',
+      port: 3306,
+      user: 'root',
+      password: '',
+      database: 'database_test',
+      // Nom de la table dans la base de données pour stocker les sessions
+      // La table sera créée automatiquement si elle n'existe pas
+      tableName: 'sessions',
+    }),
+  };
+  
+  app.use(session(sessionOptions));    
 app.use(function (req, res, next) {
     //Enabling CORS
     res.header("Access-Control-Allow-Origin", "*");
@@ -19,11 +40,13 @@ app.use(function (req, res, next) {
     });
 app.use(favicon(__dirname + '/favicon.ico'));
 app.use(bodyParser.json());
-app
-    .use(favicon(__dirname + "/favicon.ico"))
-    .use(cors())
+app.use(favicon(__dirname + "/favicon.ico"))
+app.use(cors())
 
-    .use(bodyParser.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.json({limit: '300mb'}))
+
     
 app.set('view engine', 'ejs');
 app.use('/upload',express.static(__dirname + 'upload'))
@@ -38,7 +61,12 @@ sequelize.initDB();
 app.get('/',(req, res)=>{
     res.render('login');
 })
+
 app.get('/homePage',(req, res)=>{
+    if (!req.session.user) {
+
+        return res.redirect('/');
+      }
     res.render('homePage');
 })
 
