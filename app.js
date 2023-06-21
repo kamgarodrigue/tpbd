@@ -21,6 +21,13 @@ app
     .use(cors())
 
     .use(bodyParser.json());
+    
+app.set('view engine', 'ejs');
+app.use('/upload',express.static(__dirname + '/upload'))
+app.set('views', __dirname + '/views');
+app.use('/publics',express.static(__dirname + '/publics'));
+
+app.set('component', __dirname + '/component');
 sequelize.initDB();
 // sequelize.initclient();
 // POINT DE TERMINAISON
