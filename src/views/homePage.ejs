@@ -30,18 +30,22 @@
 
         <div class="main-content app-content" >
 
-            <%- include('composant/sidebare'); %> 
+            <%- include('composant/sidebare',{nom:user.nom,photo:user.photo}); %> 
             <%- include('composant/button'); %> 
             <div class="container-fluid">
                 <div class="row row-sm">
                     <div class="col-xl-3 col-lg-4 mb-3 mb-md-0">
                         <%- include('composant/search'); %> 
-                        <%- include('composant/filter'); %> 
+                        <%- include('composant/filter',{marque:marque}); %> 
                         
                     </div>
                     <div class="col-xl-9 col-lg-8">
-                        <div class="row row-sm">
-                            <%- include('composant/voiture'); %> 
+                        <div id="list" class="row row-sm">
+                            
+                            <% for(var i=0; i < voiture.length; i++) { %>
+                            <%- include('composant/voiture',{voiture:voiture[i]}); %> 
+							<% } %>
+
                         </div>
                     </div>
                     
@@ -55,4 +59,83 @@
 
 </body>
 <%- include('composant/scriptIncudes'); %> 
+<script src="/publics/js/custom.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    
+var checkboxes = document.querySelectorAll('.chec');
+
+// filter les voiture par
+checkboxes.forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+    // Vérifier si le checkbox est coché
+    if (this.checked) {
+      // Parcourir les autres checkboxes
+      checkboxes.forEach(function(otherCheckbox) {
+        // Décocher les checkboxes autres que celle actuellement cochée
+        if (otherCheckbox !== checkbox) {
+            
+          otherCheckbox.checked = false;
+        }
+        checkboxfilter(otherCheckbox.getAttribute("id"))
+      });
+    }
+  });
+});
+
+    // fonction de filtrer de voiture en temps reel
+function checkboxfilter(id) {
+    console.log(id)
+
+ 
+ // Sélectionner la liste
+ var list = document.getElementById("list");
+
+items=document.getElementsByClassName("voiture")
+  console.log(items)
+  // Parcourir les éléments de la liste
+  for (var i = 0; i < items.length; i++) {
+    var item = items[i];
+   var idhtml= item.getAttribute("class").split(' ')[0];
+    console.log(idhtml==id || id=="-1")
+   // Vérifier si l'élément correspond à la recherche
+    if (idhtml==id || id==-1) {
+      // Afficher l'élément s'il correspond à la recherche
+      item.style.display = "";
+    } else {
+      // Masquer l'élément s'il ne correspond pas à la recherche
+      item.style.display = "none";
+    }
+  }
+}
+document.getElementById("searchInput").addEventListener("input", realtimeSearch);
+// fonction de filtrer de voiture en temps reel
+function realtimeSearch() {
+    
+    // Récupérer la valeur de recherche
+ var searchValue = document.getElementById("searchInput").value.toLowerCase();
+console.log(searchValue);
+// Sélectionner la liste
+var list = document.getElementById("list");
+
+ // Récupérer tous les éléments de la liste
+ var items = list.getElementsByClassName("voiture");
+ 
+ // Parcourir les éléments de la liste
+ for (var i = 0; i < items.length; i++) {
+   var item = items[i];
+  var name= item.getElementsByClassName("titre")[0].innerHTML;
+   
+  // Vérifier si l'élément correspond à la recherche
+   if (name.toLowerCase().indexOf(searchValue) > -1) {
+     // Afficher l'élément s'il correspond à la recherche
+     item.style.display = "";
+   } else {
+     // Masquer l'élément s'il ne correspond pas à la recherche
+     item.style.display = "none";
+   }
+ }
+}
+</script>
 </html>

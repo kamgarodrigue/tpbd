@@ -5,8 +5,8 @@ const voiture = require('../../models/voiture');
 const upload =require("../../middleware/uploadvoiture")
 module.exports=(app) =>{
     app.post("/api/voiture/register",upload.single('photo'),(req,res)=>{
-        const {id,description,nom,photo,categoryId,consomationId,typeVoitureId,adminId	} = req.body;
-        if(id ||!description||!nom||!photo||!categoryId||!consomationId||!typeVoitureId||!adminId){
+        const {description,nom,categoryId,consomationId,typeVoitureId,adminId,marqueId	} = req.body;
+        if(!description||!nom||!categoryId||!consomationId||!typeVoitureId||!adminId || !marqueId){
             return res.status(400).json({
                 message:"Entrer le nom, l'email et le role, le mot de passe"
             });
@@ -14,7 +14,7 @@ module.exports=(app) =>{
         
         
         const voiture = {
-            id,description,nom,photo,categoryId,consomationId,typeVoitureId,adminId,
+            description,nom,categoryId,consomationId,typeVoitureId,adminId,marqueId,
             photo:"",
             
         };

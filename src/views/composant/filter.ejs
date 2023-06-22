@@ -4,59 +4,25 @@
         <label class="p-1 mt-2 d-flex align-items-center">
             <span class="checkbox">
                 <span class="check-box mb-0">
-                    <span class="ckbox"><input checked="" type="checkbox"><span></span></span>
+                    <span class="ckbox"><input checked="" id="-1"  type="checkbox" class="chec"><span></span></span>
                 </span>
             </span>
             <span class="ml-2">
-                Foot wear
+                Tout
             </span>
         </label>
-        <label class="p-1 d-flex align-items-center">
+        <% for(var i=0; i < marque.length; i++) { %>
+        <label class="p-1 mt-2 d-flex align-items-center">
             <span class="checkbox">
                 <span class="check-box mb-0">
-                    <span class="ckbox"><input type="checkbox"><span></span></span>
+                    <span class="ckbox"><input class="chec" id="2"  value="<%- marque[i].id%>" type="checkbox"><span></span></span>
                 </span>
             </span>
             <span class="ml-2">
-                Top wear
+                <%- marque[i].nom %>
             </span>
         </label>
-        <label class="p-1 d-flex align-items-center">
-            <span class="checkbox">
-                <span class="check-box mb-0">
-                    <span class="ckbox"><input type="checkbox"><span></span></span>
-                </span>
-            </span>
-            <span class="ml-2">
-                Bottom wear
-            </span>
-        </label>
-        <label class="p-1 d-flex align-items-center">
-            <span class="check-box mb-0">
-                <span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-            </span>
-            <span class="ml-2">
-            Accessories
-            </span>
-        </label>
-        <label class="p-1 d-flex align-items-center">
-            <span class="checkbox">
-                <span class="check-box mb-0">
-                    <span class="ckbox"><input type="checkbox"><span></span></span>
-                </span>
-            </span>
-            <span class="ml-2">
-                Furniture
-            </span>
-        </label>
-        <label class="p-1 d-flex align-items-center">
-            <span class="check-box mb-0">
-                <span class="ckbox"><input checked="" type="checkbox"><span></span></span>
-            </span>
-            <span class="ml-2">
-                Electronics
-            </span>
-        </label>
+        <% } %>
     </div>
     <div class="card">
         <a href="#"><button id="button" class="btn btn-primary  data-btn">Ajouter</button></a>

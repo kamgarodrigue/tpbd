@@ -1,16 +1,16 @@
-<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4">
+<div  class=" <%- voiture.marqueId %> voiture col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4">
     <div class="product-card card overflow-hidden">
-        <img class="w-100 mt-0" src="/publics/img/téléchargement.jpeg" alt="product-image"/>
+        <img class="w-100 mt-0" src="<%- url %>/<%- voiture.photo %>" alt="product-image"/>
         <div class="card-body h-100">
             <div class="d-flex">
-                <span class="text-muted small mg-b-5">planters</span>
+                <span class="text-muted small mg-b-5"><%- voiture.typeVoiture.nom%></span>
                 <span class="ml-auto"><i class="fa fa-heart text-danger"></i></span>
             </div>
-            <h3 class="h6 mb-2 font-weight-bold text-uppercase">Flower Pot</h3>
+            <h3 class="titre h6 mb-2 font-weight-bold text-uppercase"><%- voiture.nom %></h3>
             
             <div class="d-flex">
             
-                <h4 class="h5 w-50 font-weight-bold text-danger">25 </h4>
+                <h4 class="h5 w-50 font-weight-bold text-danger"><%- voiture.prix %> </h4>
                 
             </div>
             <button class="btn btn-primary btn-block mb-0 mt-4">
@@ -22,6 +22,7 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-4">
     <div class="product-card card overflow-hidden">
         <img class="w-100 mt-0" src="/publics/img/_limousine-blanche.jpeg"/>
@@ -78,3 +79,5 @@
         </div>
     </div>
 </div>
+=======
+>>>>>>> 984e174ab10008cc9ecbbf5258ad9611e62a6143
