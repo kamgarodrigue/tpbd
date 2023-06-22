@@ -41,6 +41,9 @@ app.get('/',(req, res)=>{
 app.get('/homePage',(req, res)=>{
     res.render('homePage');
 })
+app.get('/detail',(req, res)=>{
+    res.render('detail');
+})
 
 //point de terminaison sur pour les admin
 require("./src/routes/adminRouter/register")(app);
