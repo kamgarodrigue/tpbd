@@ -3,7 +3,10 @@
         <img class="w-100 mt-0" src="<%- url %>/<%- voiture.photo %>" alt="product-image"/>
         <div class="card-body h-100">
             <div class="d-flex">
-                <h4><span class="text-muted small mg-b-5"><%- voiture.typeVoiture.nom%></span>|<span class="text-muted small mg-b-5">Marque</span>|<span class="text-muted small mg-b-5">categorie</span>|<span class="text-muted small mg-b-5">consommation</span></h4>
+                <span class="text-muted small mx-2 mg-b-5"><%- voiture.typeVoiture.nom%></span>
+                <span class="text-muted small mx-2 mg-b-5">Marque<i class="fa-light fa-pipe"></i></span>
+                <span class="text-muted small mx-2 mg-b-5">categorie</span>
+                <span class="text-muted small mx-2 mg-b-5">consommation</span>
                 <span class="ml-auto"><i class="fa fa-heart text-danger"></i></span>
             </div>
             <h3 class="titre h6 mb-2 font-weight-bold text-uppercase"><%- voiture.nom %></h3>
