@@ -13,6 +13,10 @@ const voiture =(sequelize, DataTypes,categoriTable,consomation,marque,typeVoitur
             type: DataTypes.STRING,
             allowNull: false
         },
+        prix: {
+            type:DataTypes.STRING,
+            allowNull: false
+        },
         nom: {
             type: DataTypes.STRING,
             unique: {

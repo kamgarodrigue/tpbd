@@ -55,7 +55,10 @@
             
         </div>
 
-        
+        <!-- *********************************** modal  pour ajouter une annonce ************************************************************ -->
+							<div class="modal" id="modaldemo1">
+								<%- include('composant/addAnnModal',{marque:marque, conso:consomation, typeVoiture:typeVoiture, categori:categori}); %>
+							</div>
 
 </body>
 <%- include('composant/scriptIncudes'); %> 
@@ -78,7 +81,7 @@ checkboxes.forEach(function(checkbox) {
             
           otherCheckbox.checked = false;
         }
-        checkboxfilter(otherCheckbox.getAttribute("id"))
+        checkboxfilter(checkbox.getAttribute("id"))
       });
     }
   });
@@ -86,7 +89,7 @@ checkboxes.forEach(function(checkbox) {
 
     // fonction de filtrer de voiture en temps reel
 function checkboxfilter(id) {
-    console.log(id)
+  
 
  
  // Sélectionner la liste
@@ -98,9 +101,10 @@ items=document.getElementsByClassName("voiture")
   for (var i = 0; i < items.length; i++) {
     var item = items[i];
    var idhtml= item.getAttribute("class").split(' ')[0];
-    console.log(idhtml==id || id=="-1")
+   console.log(id +"="+item.getAttribute("class")[1])
+    console.log(item.getAttribute("class")[1]==id || id=="-1")
    // Vérifier si l'élément correspond à la recherche
-    if (idhtml==id || id==-1) {
+    if (item.getAttribute("class")[1]==id || id==-1) {
       // Afficher l'élément s'il correspond à la recherche
       item.style.display = "";
     } else {

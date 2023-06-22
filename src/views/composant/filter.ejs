@@ -15,7 +15,7 @@
         <label class="p-1 mt-2 d-flex align-items-center">
             <span class="checkbox">
                 <span class="check-box mb-0">
-                    <span class="ckbox"><input class="chec" id="2"  value="<%- marque[i].id%>" type="checkbox"><span></span></span>
+                    <span class="ckbox"><input class="chec" id="<%- marque[i].id%>"  value="<%- marque[i].id%>" type="checkbox"><span></span></span>
                 </span>
             </span>
             <span class="ml-2">
@@ -25,7 +25,7 @@
         <% } %>
     </div>
     <div class="card">
-        <a href="#"><button id="button" class="btn btn-primary  data-btn">Ajouter</button></a>
+        <a data-effect="effect-super-scaled" data-toggle="modal" href="#modaldemo1"><button id="button" class="btn btn-primary  data-btn">Ajouter</button></a>
     </div>
 </div>
 <!-- <div class="card overflow-hidden">
