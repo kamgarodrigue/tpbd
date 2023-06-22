@@ -66,6 +66,9 @@ app.get('/logout',(req, res)=>{
     req.session=null;
     res.render('login');
 })
+app.get('/detail',(req, res)=>{
+    res.render('detail');
+})
 
 app.get('/homePage',(req, res)=>{
     if (!req.session.user) {

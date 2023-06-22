@@ -5,10 +5,11 @@ const voiture = require('../../models/voiture');
 const upload =require("../../middleware/uploadvoiture")
 module.exports=(app) =>{
     app.post("/api/voiture/register",upload.single('photo'),(req,res)=>{
+        console.log(req.body)
         const {description,nom,categoryId,consomationId,typeVoitureId,adminId,marqueId,prix	} = req.body;
         if(!description||!nom||!categoryId||!consomationId||!typeVoitureId||!adminId || !marqueId || !prix){
             return res.status(400).json({
-                message:"Entrer  toute les information"
+                message:"Veuillez entrer tous les champs"
             });
         }
         
