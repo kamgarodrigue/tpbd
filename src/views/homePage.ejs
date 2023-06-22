@@ -141,5 +141,49 @@ var list = document.getElementById("list");
    }
  }
 }
+$(document).ready(function() {
+	  // Ecouteur pour soumettre le formulaire
+		$('#my-formS').submit(function(event) {
+		event.preventDefault();
+	
+		//var formData = $(form).serialize();
+		var formdata= new FormData(this);
+	let form =$('#my-formS').serialize()
+		// Envoi de la requête AJAX
+		$.ajax({
+			url: "<%= url%>/api/voiture/register",
+			type: 'POST',
+			processData: false,
+			contentType: false,
+			data: formdata,
+
+			success: function(data) {
+				//$('#modaldemo1').modal('hide')
+			//	showConfirm(redirectHome);
+				window.location.href = "<%-url%>/homePage"
+			},
+			error: function(xhr, status, error) {
+				alert("Something went wrong" +form); // handle error response
+			}
+		})
+		});
+	});
+
+  function showConfirm(callback){
+		swal(
+			{
+				title: 'SUCCES!',
+				text: 'Annonces Ajouter avec succes!',
+				type: 'success',
+				// confirmButtonColor: '#57a94f'
+			}
+		)
+		callback();
+	}
+	function redirectHomeU(){
+		setTimeout( function(){
+			window.location.href="<%-url%>/homePage";
+		}, 1000)
+	}
 </script>
 </html>
