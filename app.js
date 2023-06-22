@@ -6,10 +6,11 @@ const morgan            = require("morgan")
 const session = require('express-session');
 
 const sequelize = require('./src/db/sequelize');
+const { baseUrl } = require('./src/db/env');
 const MySQLStore = require('express-mysql-session')(session);
 const app = express();
 require('events').EventEmitter.defaultMaxListeners = 35;
-
+global.url= baseUrl
 const port=process.env.PORT || 3001;    
 app.use(morgan('dev'))     
  
@@ -49,7 +50,7 @@ app.use(bodyParser.json({limit: '300mb'}))
 
     
 app.set('view engine', 'ejs');
-app.use('/upload',express.static(__dirname + 'upload'))
+app.use('/upload',express.static(__dirname + '/upload'))
 app.set('views', __dirname + '/src/views');
 app.use('/publics',express.static(__dirname + '/src/public'));
 
@@ -61,14 +62,20 @@ sequelize.initDB();
 app.get('/',(req, res)=>{
     res.render('login');
 })
+app.get('/logout',(req, res)=>{
+    req.session=null;
+    res.render('login');
+})
 
 app.get('/homePage',(req, res)=>{
     if (!req.session.user) {
 
         return res.redirect('/');
       }
-    res.render('homePage');
-})
+      req.session.user.photo;
+      console.log(req.session.user)
+   res.redirect("/api/voiture/all/");
+  })
 
 //point de terminaison sur pour les admin
 require("./src/routes/adminRouter/register")(app);
@@ -91,9 +98,9 @@ require("./src/routes/typeVoiture/addTypeVoiture")(app);
 require("./src/routes/typeVoiture/getTypeVoiture")(app);
 
 //point de terminaison sur pour les voiture
-require("./src/routes/typeVoiture/addTypeVoiture")(app);
-require("./src/routes/typeVoiture/getTypeVoiture")(app);
-
+require("./src/routes/voiture/register")(app);
+require("./src/routes/voiture/update")(app);
+require("./src/routes/voiture/getVoiture")(app);
 
 
 // points de terminaisons  pour les élèves               
