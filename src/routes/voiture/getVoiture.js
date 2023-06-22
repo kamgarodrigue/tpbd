@@ -4,7 +4,10 @@ const {Op,Sequelize} = require('sequelize');
 
 module.exports = (app)=>{
   app.get("/api/voiture/all/", (req ,res)=>{
-   
+    if (!req.session.user) {
+
+      return res.redirect('/');
+    }
   
     voitureTable.findAll({
         include:[categoriTable,typeVoitureTable,consoTable,marqueTable]

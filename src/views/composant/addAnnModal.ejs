@@ -8,12 +8,14 @@
         <form id="my-formS" enctype="multipart/form-data">
             <div class="modal-body">
                     <input class="form-control" type="text" name="nom" id="titre" required placeholder="Titre de l'annonce"><br>
+                    <input class="form-control" type="text" name="prix" id="titre" required placeholder="Prix de la voiture"><br>
+
                     <textarea class="form-control" name="description" id="description" required placeholder="Description de l'annonce"></textarea><br>
                    
                     <div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
                         <select class="form-control" id="type" name="marqueId" class="testselect2 SumoUnder" tabindex="-1" placeholder="Selectione la marque">
                             <% for(var i=0; i < marque.length; i++) { %>
-                                <option value="<%= marque[i]._id%>"><%= marque[i].nom %></option>
+                                <option value="<%= marque[i].id%>"><%= marque[i].nom %></option>
                                 <% } %>
                         </select><br>
                     </div><br>
@@ -22,14 +24,14 @@
                     <div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
                         <select class="form-control" id="type" name="categoryId" class="testselect2 SumoUnder" tabindex="-1" placeholder="Selectione la categorie ">
                             <% for(var i=0; i < categori.length; i++) { %>
-                                <option value="<%= categori[i]._id%>"><%= categori[i].nom %></option>
+                                <option value="<%= categori[i].id%>"><%= categori[i].nom %></option>
                                 <% } %>
                         </select><br>
                     </div><br>
                     <div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
                         <select class="form-control" id="type" name="typeVoitureId" class="testselect2 SumoUnder" tabindex="-1" placeholder="Selectione le Type ">
                             <% for(var i=0; i < typeVoiture.length; i++) { %>
-                                <option value="<%= typeVoiture[i]._id%>"><%= typeVoiture[i].nom %></option>
+                                <option value="<%= typeVoiture[i].id%>"><%= typeVoiture[i].nom %></option>
                                 <% } %>
                         </select><br>
                     </div><br>
@@ -37,7 +39,7 @@
                     <div class="SumoSelect" tabindex="0" role="button" aria-expanded="false">
                         <select class="form-control" id="type" name="consomationId" class="testselect2 SumoUnder" tabindex="-1" placeholder="Selectione la consomation ">
                             <% for(var i=0; i < conso.length; i++) { %>
-                                <option value="<%= conso[i]._id%>"><%= conso[i].nom %></option>
+                                <option value="<%= conso[i].id%>"><%= conso[i].nom %></option>
                                 <% } %>
                         </select><br>
                     </div><br>
