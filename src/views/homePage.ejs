@@ -158,8 +158,8 @@ $(document).ready(function() {
 			data: formdata,
 
 			success: function(data) {
-				//$('#modaldemo1').modal('hide')
-			//	showConfirm(redirectHome);
+				$('#modaldemo1').modal('hide')
+				showConfirm(redirectHome);
 				window.location.href = "<%-url%>/homePage"
 			},
 			error: function(xhr, status, error) {

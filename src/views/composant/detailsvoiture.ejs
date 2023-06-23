@@ -4,8 +4,8 @@
             <div class="row no-gutter">
                 <div class="col-lg-6 border-right">
                     <div class=" pb-0 image-zoom-container">
-                        <div class="show image-zoom" href="assets/img/ecommerce/1.png">
-                            <img src="assets/img/ecommerce/1.png" id="show-img" alt="img">
+                        <div class="show image-zoom" href="<%- url %>/<%- voiture.photo %>">
+                            <img src="<%- url %>/<%- voiture.photo %>" id="show-img" alt="img">
                         </div>
                         <div class="small-img">
                             <img src="assets/plugins/Image-Zoom/images/online_icon_right%402x.png" class="icon-left" alt="" id="prev-img">
@@ -28,23 +28,23 @@
                     <div class="p-4">
                         <h4 class="product-title">Fabric Sofa</h4>
                         
-                        <p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
-                        <h6 class="price">prix: <span class="text-dark mx-1">FCFA</span></h6>
+                        <p class="product-description"><%- voiture.description %></p>
+                        <h6 class="price">prix: <%- voiture.prix %> <span class="text-dark mx-1">FCFA</span></h6>
                         
                         <div class="sizes d-flex">Marque:
-                            <span class="size d-flex"  data-toggle="tooltip" title="small">marque</span>
+                            <span class="size d-flex"  data-toggle="tooltip" title="small"><%- voiture.marque.dataValues.nom %></span>
             
                         </div>
                         <div class="sizes d-flex">categorie:
-                            <span class="size d-flex"  data-toggle="tooltip" title="small">categorie</span>
+                            <span class="size d-flex"  data-toggle="tooltip" title="small"><%- voiture.category.dataValues.nom %></span>
             
                         </div>
                         <div class="sizes d-flex">Type:
-                            <span class="size d-flex"  data-toggle="tooltip" title="small">type</span>
+                            <span class="size d-flex"  data-toggle="tooltip" title="small"><%- voiture.typeVoiture.dataValues.nom %></span>
             
                         </div>
                         <div class="sizes d-flex">consommation:
-                            <span class="size d-flex"  data-toggle="tooltip" title="small">consommation</span>
+                            <span class="size d-flex"  data-toggle="tooltip" title="small"><%- voiture.consomation.dataValues.nom %></span>
             
                         </div>
                         <div class="action">
