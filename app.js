@@ -10,7 +10,8 @@ const { baseUrl } = require('./src/db/env');
 const MySQLStore = require('express-mysql-session')(session);
 const app = express();
 require('events').EventEmitter.defaultMaxListeners = 35;
-global.url= baseUrl
+//global.url= baseUrl
+global.url="http://localhost:3001"
 const port=process.env.PORT || 3001;    
 app.use(morgan('dev'))     
  
