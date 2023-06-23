@@ -67,7 +67,11 @@ app.get('/logout',(req, res)=>{
     res.render('login');
 })
 app.get('/detail',(req, res)=>{
-    res.render('detail');
+  if (!req.session.user) {
+
+    return res.redirect('/');
+  }
+    res.redirect("/api/voiture/detail/")
 })
 
 app.get('/homePage',(req, res)=>{
@@ -104,6 +108,8 @@ require("./src/routes/typeVoiture/getTypeVoiture")(app);
 require("./src/routes/voiture/register")(app);
 require("./src/routes/voiture/update")(app);
 require("./src/routes/voiture/getVoiture")(app);
+require("./src/routes/voiture/detail")(app);
+
 
 
 // points de terminaisons  pour les élèves               

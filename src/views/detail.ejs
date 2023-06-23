@@ -30,11 +30,11 @@
 
         <div class="main-content app-content" >
 
-            <%- include('composant/sidebare'); %> 
+            <%- include('composant/sidebare',{nom:user.nom,photo:user.photo}); %> 
             <%- include('composant/headproduit'); %> 
             <div class="container-fluid">
                 <div class="row row-sm">
-                    <%- include('composant/detailsvoiture'); %> 
+                    <%- include('composant/detailsvoiture',{voiture:voiture,categori:categori, typeVoiture:typeVoiture, consomation:consomation,marque:marque}); %> 
                     
                 </div>
                 
