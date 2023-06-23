@@ -6,7 +6,7 @@ const upload =require("../../middleware/uploadvoiture")
 
 
 module.exports = (app)=>{
-    app.put("/api/voiture/update/:id",upload.single('photo'),(req,res)=>{
+    app.post("/api/voiture/update/:id",upload.single('photo'),(req,res)=>{
         const id = req.params.id;
         if(req.file){
             // console.log(req.file.path);
@@ -19,7 +19,7 @@ module.exports = (app)=>{
             return voitureTable.findByPk(id)
             .then((voiture)=>{
                 if(voiture===null){
-                    const message= "L'ecole demande m'existe pas";
+                    const message= "la voiture demande m'existe pas";
                     return res.status(404).json({message});
                 }
                 const message="voiture"+voiture.name+" updated successfully";

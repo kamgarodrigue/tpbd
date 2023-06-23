@@ -43,7 +43,59 @@
         </div>
 
         
+        <div class="modal" id="modaldemo2">
+            <%- include('composant/updateAnnModal',{voiture:voiture,marque:marque,conso:consomation, typeVoiture:typeVoiture, categori:categori}); %>
+        </div>
 
 </body>
 <%- include('composant/scriptIncudes'); %> 
+<script>
+    
+    $(document).ready(function() {
+	  // Ecouteur pour soumettre le formulaire
+		$('#my-formU').submit(function(event) {
+		event.preventDefault();
+	let id =document.getElementById("idU").value;
+    console.log(id);
+		//var formData = $(form).serialize();
+		var formdata= new FormData(this);
+	let form =$('#my-formU').serialize()
+		// Envoi de la requête AJAX
+		$.ajax({
+			url: `<%= url%>/api/voiture/update/${id}`,
+			type: 'POST',
+			processData: false,
+			contentType: false,
+			data: formdata,
+
+			success: function(data) {
+				$('#modaldemo1').modal('hide')
+				showConfirm(redirectHomeU);
+                window.location.href = `<%= url%>/api/voiture/detail/${id}`;
+			
+			},
+			error: function(xhr, status, error) {
+				alert("Something went wrong" +form); // handle error response
+			}
+		})
+		});
+	});
+
+  function showConfirm(callback){
+		swal(
+			{
+				title: 'SUCCES!',
+				text: 'Annonces Modifier avec succes!',
+				type: 'success',
+				// confirmButtonColor: '#57a94f'
+			}
+		)
+		callback();
+	}
+	function redirectHomeU(){
+		setTimeout( function(){
+            window.location.href = `<%= url%>/api/voiture/detail/${id}`;
+		}, 1000)
+	}
+</script>
 </html>
