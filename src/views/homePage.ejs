@@ -159,8 +159,8 @@ $(document).ready(function() {
 			data: formdata,
 
 			success: function(data) {
-				$('#modaldemo1').modal('hide')
-				showConfirm(redirectHome);
+			
+				showConfirm(redirectHomeU);
 				window.location.href = "<%-url%>/homePage"
 			},
 			error: function(xhr, status, error) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 22 juin 2023 à 18:50
+-- Généré le : sam. 24 juin 2023 à 00:42
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.4.8
 
@@ -116,36 +116,6 @@ INSERT INTO `marques` (`id`, `nom`, `createdAt`, `updatedAt`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `payements`
---
-
-CREATE TABLE `payements` (
-  `payementId` int(11) NOT NULL,
-  `amount` int(11) NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `userId` int(11) DEFAULT NULL,
-  `studentId` int(11) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `schools`
---
-
-CREATE TABLE `schools` (
-  `schoolid` int(11) NOT NULL,
-  `name` varchar(500) NOT NULL,
-  `adresse` varchar(255) NOT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `sessions`
 --
 
@@ -160,28 +130,9 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
-('z-vEUT8vadTHVI-OqfcvxSDTh9cTmj9E', 1687538813, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"user\":{\"id\":1,\"nom\":\"Eva love\",\"email\":\"eva@gmail.com\",\"photo\":\"upload\\\\admin\\\\1687444549473.jpg\",\"password\":\"$2b$10$i/87bI/s1OiPa02ogPfDduJHwNxARitbzGb18Ddwctxa4qvjvqpOO\",\"createdAt\":\"2023-06-22T14:35:50.000Z\",\"updatedAt\":\"2023-06-22T14:35:50.000Z\"}}');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `students`
---
-
-CREATE TABLE `students` (
-  `studentid` int(11) NOT NULL,
-  `name` varchar(500) NOT NULL,
-  `class` varchar(255) NOT NULL,
-  `sex` varchar(255) NOT NULL,
-  `birthday` date NOT NULL,
-  `birth_place` varchar(255) NOT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `school_situation` varchar(255) NOT NULL,
-  `class_situation` varchar(255) NOT NULL,
-  `schoolId` int(11) DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+('E6uann7MAcBOY8c9iasyb64WOe1MNFgu', 1687645897, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"user\":{\"id\":1,\"nom\":\"Eva love\",\"email\":\"eva@gmail.com\",\"photo\":\"upload\\\\admin\\\\1687444549473.jpg\",\"password\":\"$2b$10$i/87bI/s1OiPa02ogPfDduJHwNxARitbzGb18Ddwctxa4qvjvqpOO\",\"createdAt\":\"2023-06-22T14:35:50.000Z\",\"updatedAt\":\"2023-06-22T14:35:50.000Z\"}}'),
+('JOJYkKAOWgJ3ObI6BG3h2OgDA7Isocmw', 1687605505, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"user\":{\"id\":1,\"nom\":\"Eva love\",\"email\":\"eva@gmail.com\",\"photo\":\"upload\\\\admin\\\\1687444549473.jpg\",\"password\":\"$2b$10$i/87bI/s1OiPa02ogPfDduJHwNxARitbzGb18Ddwctxa4qvjvqpOO\",\"createdAt\":\"2023-06-22T14:35:50.000Z\",\"updatedAt\":\"2023-06-22T14:35:50.000Z\"}}'),
+('_E4sB82xNY_HzDxPJkJYkTqh4tdTx5Om', 1687607955, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"user\":{\"id\":1,\"nom\":\"Eva love\",\"email\":\"eva@gmail.com\",\"photo\":\"upload\\\\admin\\\\1687444549473.jpg\",\"password\":\"$2b$10$i/87bI/s1OiPa02ogPfDduJHwNxARitbzGb18Ddwctxa4qvjvqpOO\",\"createdAt\":\"2023-06-22T14:35:50.000Z\",\"updatedAt\":\"2023-06-22T14:35:50.000Z\"}}');
 
 -- --------------------------------------------------------
 
@@ -207,22 +158,6 @@ INSERT INTO `typevoitures` (`id`, `nom`, `createdAt`, `updatedAt`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `users`
---
-
-CREATE TABLE `users` (
-  `userid` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `role` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `voitures`
 --
 
@@ -240,14 +175,6 @@ CREATE TABLE `voitures` (
   `marqueId` int(11) DEFAULT NULL,
   `typeVoitureId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `voitures`
---
-
-INSERT INTO `voitures` (`id`, `description`, `prix`, `nom`, `photo`, `createdAt`, `updatedAt`, `adminId`, `categoryId`, `consomationId`, `marqueId`, `typeVoitureId`) VALUES
-(1, 'fjjjjbqsvgggggggqnkmsgvvvvvvgnqkmgnv', '4500', 'Tabita', 'upload\\admin\\1687447377377.jpeg', '2023-06-22 15:22:58', '2023-06-22 15:22:58', 1, 1, 1, 2, 2),
-(2, 'fjjjjbqsvgggggggqnkmsgvvvvvvgnqkmgnv', '500', 'Madiba', 'upload\\admin\\1687447486369.webp', '2023-06-22 15:24:46', '2023-06-22 15:24:46', 1, 2, 2, 3, 1);
 
 --
 -- Index pour les tables déchargées
@@ -279,45 +206,16 @@ ALTER TABLE `marques`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `payements`
---
-ALTER TABLE `payements`
-  ADD PRIMARY KEY (`payementId`),
-  ADD KEY `userId` (`userId`),
-  ADD KEY `studentId` (`studentId`);
-
---
--- Index pour la table `schools`
---
-ALTER TABLE `schools`
-  ADD PRIMARY KEY (`schoolid`),
-  ADD UNIQUE KEY `schools_name_unique` (`name`);
-
---
 -- Index pour la table `sessions`
 --
 ALTER TABLE `sessions`
   ADD PRIMARY KEY (`session_id`);
 
 --
--- Index pour la table `students`
---
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`studentid`),
-  ADD KEY `schoolId` (`schoolId`);
-
---
 -- Index pour la table `typevoitures`
 --
 ALTER TABLE `typevoitures`
   ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`userid`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
 -- Index pour la table `voitures`
@@ -360,68 +258,91 @@ ALTER TABLE `marques`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `payements`
---
-ALTER TABLE `payements`
-  MODIFY `payementId` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `schools`
---
-ALTER TABLE `schools`
-  MODIFY `schoolid` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `students`
---
-ALTER TABLE `students`
-  MODIFY `studentid` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT pour la table `typevoitures`
 --
 ALTER TABLE `typevoitures`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT pour la table `users`
---
-ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT pour la table `voitures`
 --
 ALTER TABLE `voitures`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `payements`
---
-ALTER TABLE `payements`
-  ADD CONSTRAINT `payements_ibfk_7` FOREIGN KEY (`userId`) REFERENCES `users` (`userid`),
-  ADD CONSTRAINT `payements_ibfk_8` FOREIGN KEY (`studentId`) REFERENCES `students` (`studentid`);
-
---
--- Contraintes pour la table `students`
---
-ALTER TABLE `students`
-  ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`schoolId`) REFERENCES `schools` (`schoolid`);
-
---
 -- Contraintes pour la table `voitures`
 --
 ALTER TABLE `voitures`
-  ADD CONSTRAINT `voitures_ibfk_10` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `voitures_ibfk_11` FOREIGN KEY (`consomationId`) REFERENCES `consomations` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `voitures_ibfk_12` FOREIGN KEY (`marqueId`) REFERENCES `marques` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_101` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_106` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_111` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_116` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_121` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_126` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `voitures_ibfk_13` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_131` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_136` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_141` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_146` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_151` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_156` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_161` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_166` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_174` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_179` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_18` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_184` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_189` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_194` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_199` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_204` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_209` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_214` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_219` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_224` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_23` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_232` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_237` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_242` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_247` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_252` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_257` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_262` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_267` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_272` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_277` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_28` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_282` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_287` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_292` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_297` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_302` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_307` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_312` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_317` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_322` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_323` FOREIGN KEY (`adminId`) REFERENCES `admins` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_324` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_325` FOREIGN KEY (`consomationId`) REFERENCES `consomations` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_326` FOREIGN KEY (`marqueId`) REFERENCES `marques` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_327` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_33` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_38` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_43` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_48` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `voitures_ibfk_5` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `voitures_ibfk_9` FOREIGN KEY (`adminId`) REFERENCES `admins` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `voitures_ibfk_53` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_58` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_63` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_68` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_73` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_78` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_83` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `voitures_ibfk_92` FOREIGN KEY (`typeVoitureId`) REFERENCES `typevoitures` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

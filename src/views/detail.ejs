@@ -93,11 +93,58 @@
 		)
 		callback();
 	}
+    
 	function redirectHomeU(){
 		setTimeout( function(){
             window.location.href = `<%= url%>/api/voiture/detail/${id}`;
 		}, 1000)
 	}
-</script>
+    function deleteU(i){
+		
+        swal(
+						{
+							title: "veux tu vraiment supprimer cette voiture",
+							text: "Fermer",
+							type: "warning",
+							showCancelButton: true,
+							confirmButtonClass: "btn btn-danger",
+							confirmButtonText: "Oui je veux suprimer!",
+							closeOnConfirm: false
+						},
+                        
+						function(){
+						console.log(i);
+						  $.ajax({
+								url: `<%= url %>/api/delete/${i}`,
+								type: 'POST',
+								dataType: 'json',
+								contentType: 'application/json',
+								data: JSON.stringify({userID : i}),
+								//data: $(this).serialize(),
+								success: function(data) {
+									//$('#modaldemo8').modal('hide')
+									swal("Suprimer!", "Voture  suprimer avec Success.", "success");
+									window.location.href ="<%- url %>/api/voiture/all/"
+									//alert(data)
+								},
+								error: function(xhr, status, error) {
+									alert("Something went wrong "+error); // handle error response
+								}
+							});
+		
+					  })
+    }
 
+</script>
+<script src="<%- url %>/publics/js/select2.js"></script>
+
+		<!--Zoom js -->
+		<script src="<%- url %>/publics/plugins/Image-Zoom/scripts/zoom-image.js"></script>
+		<script src="<%- url %>/publics/plugins/Image-Zoom/scripts/main.js"></script>
+
+		<!--Internal  Nice-select js-->
+		<script src="<%- url %>/publics/plugins/jquery-nice-select/js/jquery.nice-select.js"></script>
+		<script src="<%- url %>/publics/plugins/jquery-nice-select/js/nice-select.js"></script>
+
+</html>
 </html>

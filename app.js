@@ -110,42 +110,12 @@ require("./src/routes/voiture/register")(app);
 require("./src/routes/voiture/update")(app);
 require("./src/routes/voiture/getVoiture")(app);
 require("./src/routes/voiture/detail")(app);
+require("./src/routes/voiture/delete")(app);
 
 
 
-// points de terminaisons  pour les élèves               
-require("./src/routes/studentRouter/findAllStudent")(app);
-require("./src/routes/studentRouter/findOneStudent")(app);
-require("./src/routes/studentRouter/createStudent")(app);
-require("./src/routes/studentRouter/updateStudent")(app);
-require("./src/routes/studentRouter/deleteStudent")(app);
-require("./src/routes/studentRouter/findstudentByschool")(app);
 
 
-// points de terminaisons  pour utilisateurs  
-
-require("./src/routes/userRouter/login")(app);
-require("./src/routes/userRouter/register")(app);
-require("./src/routes/userRouter/findAllUser")(app);
-require("./src/routes/userRouter/findOneUser")(app);
-require("./src/routes/userRouter/updateUser")(app);
-require("./src/routes/userRouter/deleteUser")(app);
-
-// points de terminaisons  pour les écoles
-
-require("./src/routes/schoolRouter/createSchool")(app);
-require("./src/routes/schoolRouter/findAllSchool")(app);
-require("./src/routes/schoolRouter/findOneSchool")(app);
-require("./src/routes/schoolRouter/updateSchool")(app);
-require("./src/routes/schoolRouter/deleteSchool")(app);
-
-// points de terminaisons  pour les payments 
-
-require("./src/routes/payRouter/createPayFrom")(app);   
-require("./src/routes/payRouter/findAllPay")(app);
-require("./src/routes/payRouter/findOnePay")(app);
-require("./src/routes/payRouter/updatePay")(app);
-require("./src/routes/payRouter/deletePay")(app);
 
 
 // Ajoute le gestion d'erreur 404

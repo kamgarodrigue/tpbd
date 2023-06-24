@@ -3,8 +3,8 @@ const bcrypt = require('bcrypt');
 
 // importation des models
 
-const studentModel = require("../models/studentModel");
-const userModel = require("../models/userModel");
+
+
 const adminModel = require("../models/admin");
 const marqueModel = require("../models/marque");
 const consomationModel = require("../models/consomation");
@@ -12,8 +12,7 @@ const catgoriModel= require("../models/categori");
 const typeVoitureModel= require("../models/typeVoiture");
 const voitureModel= require("../models/voiture");
 
-const payModel = require("../models/payModel");
-const schoolModel = require("../models/schoolModel");
+
 
 // configuration de la base de donnees 
 let sequelize;
@@ -44,10 +43,9 @@ sequelize = new Sequelize('database_test', 'root', '', {
 }
 
 // creation des models
-const studentTable= studentModel(sequelize, DataTypes);
-const userTable= userModel(sequelize, DataTypes);
-const payTable= payModel(sequelize, DataTypes);
-const schoolTable= schoolModel(sequelize, DataTypes);
+
+
+
 const adminTable= adminModel(sequelize, DataTypes);
 const consoTable=consomationModel(sequelize, DataTypes);
 const marqueTable=marqueModel(sequelize, DataTypes);
@@ -63,7 +61,7 @@ const typeVoitureTable=typeVoitureModel(sequelize, DataTypes);
    
  }
 
-module.exports = { studentTable, userTable, initDB,payTable, schoolTable,adminTable,consoTable,marqueTable,categoriTable,typeVoitureTable,voitureTable};
+module.exports = {   initDB,adminTable,consoTable,marqueTable,categoriTable,typeVoitureTable,voitureTable};
 
 
 
